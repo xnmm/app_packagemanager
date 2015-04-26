@@ -1,0 +1,60 @@
+    Copyright (C) 2015  xhunik miguel
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+---------------------------------------------------------------------------
+NOTA: para poder compilar el software deberan tener los sig. programas
+
+	1)make: necesario para la compilacion programa
+	http://www.gnu.org/software/make/
+
+app es un gestor de software diseñado para correr dentro de un sistema GNU/Linux aunque puede correr dentro de cualquier sistema UNIX y/o *nix siempre y cuando tenga'bash' instalado ya que app es un script en bash.
+
+las dependencias mayores son necesarias para el funcionamiento del programa, la mayoria deberia venir instalada por defecto en su distribución GNU/linux entre las que estan.
+
+	1)tar: usada para empaquetar los archivos
+	http://www.gnu.org/software/tar/
+	2)xz: usada para la compresion de el archivo tar
+	
+	3)bash: usado como interprete del archivo
+
+"la mayoria de veces estos ya vienen instalados por defecto si no deberan buscarlos e instalarlos"
+
+tambien incluye scripts en bash que solamente tienen funciones, estos archivos actuan como librerias y estan en <directorio contenedor>/app/lib y estan en organizados segun el tipo de funciones que contengan.
+
+Estas se llaman *.lib.sh y se instalan en /usr
+
+	1)
+
+"para compilar las librerias ejecute 'make libs' o make libs_<nombre de la libreria>"
+
+ademas de todo la anterior el programa esta dividido en modulos los cuales cumplen tareas distintas dentro del mismo programa, estos se encuentran en <directorio contenedor>/app/modules. entre ellos estan
+
+	1)
+
+estos se llaman *.mod.sh y se instalan en /usr
+
+"se compilan con 'make mods' o 'make mods_<nombre del modulo>'"
+
+tambien se incluyen plantillas de los archivos de configuracion que seran instaladas por defecto, una vez instalados podran cambiarse los valores de configuracion. tambien pueden ser usados como respaldo en caso de que se corrompan los archivos.
+
+estos se encuentran en <directorio contenedor>/app/config y se instalan segun el archivo
+
+"para instalar los archivos de configuracion use 'make config' o 'make config_<archivo de configuracion>'"
+
+"para compilar todo el programa se usa 'make install'"
+
+"para desinstalar se usa 'make uninstall' o 'make remove_<mods, libs>' o 'make remove_<mods, libs>-<name>'"
+
+"para probar los scripts tipo bash use 'make probe'"

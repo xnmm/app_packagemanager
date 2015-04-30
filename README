@@ -38,13 +38,13 @@ tambien incluye scripts en bash que solamente tienen funciones, estos archivos a
 
 Estas se llaman *.lib.sh y se instalan en /usr
 
-	1) basic.lib.sh: esta contien funciones basicas de IO
+
 
 "para compilar las librerias ejecute 'make libs' o make libs_<nombre de la libreria>"
 
 ademas de todo la anterior el programa esta dividido en modulos los cuales cumplen tareas distintas dentro del mismo programa, estos se encuentran en <directorio contenedor>/app/modules. entre ellos estan
 
-	1) packs.mod.sh: este modulo maneja los paquetes
+
 
 estos se llaman *.mod.sh y se instalan en /usr
 

@@ -1,0 +1,42 @@
+para colaborar en el proyecto contactame al correo:
+	xhuniktzi@gmail.com
+
+funciones
+	setup:
+		recibe el nombre de un paquete local lo descomprime y lo instala, (si requiere dependencias primer 		busca en el directorio actual a menos que se evite explcitamente, despues en los repositorios), luego actualiza la base de datos
+	install:
+		recibe el nombre de un paquete remoto lo descarga, descomprime y lo instala, (las dependencias solo se buscan en el repositorio remoto a menos que se indique explicitamente que se buscara localmente), luego actualiza la base de datos.
+		binmkpkg:
+			si se pone este parametro a las 2 opciones anteriores primero leera el estado actual de los archivos del sistema y despues de la instalacion los compara para percibir los cambios y crear un paquete binario.
+
+	remove:
+		esta funcion recibe un parametro el cual es el paquete a desinstalar, lo desinstala y despues actualiza la base de datos, (si este era dependencia checkea que no se dependencia requerida, en dado caso no se desinstala)
+		purge:
+			si se le aplica este parametro a remove tambien elimina de forma recursiva cualquier dependencia que no este en uso por otro programa.
+
+	mkrepo:
+		esta funcion recibe el parametro, url (que es la direccion donde se subira el repositorio, local para repositorio local), name (que es el nombre del repositorio), type (que puede ser "src, bin, patch-src, patch-bin") y despues crea un directorio con una metadata inicial.
+	addpkg:
+		esta funcion recibe el parametro, pkg (que es el paquete a añadir), repo (que es el repositorio de destino) y despues le crea la metadata.
+
+	mkpkg:
+		crea un paquete de codigo fuente desde un directorio.
+	mkpatch:
+		crea un paqute de parches en src desde dos versiones del codigo fuente.
+			mkpatchbin:
+				crea un parche binario desde dos versiones del codigo fuente.
+
+	patch:
+		aplica un parche desde los repositorios.
+			local:
+				arg. de patch, lo mismo pero desde un archivo local
+
+	add:
+		agrega un repositorio, recibe los parametros, type (recibe el tipo de repositorio, puede ser "src, bin, patch-src, patch-bin"), name (busca el nombre del repositorio en la lista de verificados) y despues lo agrega a la cache.
+
+	refresh:
+		refresca la bas de datos de los repositorios.
+
+	update:
+		actualiza los paquetes desde los repositorios.
+

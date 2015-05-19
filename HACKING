@@ -19,3 +19,14 @@ para colaborar en el proyecto contactame al correo:
 app es un sistema de gestion de paquetes en fase de desarrollo y esta enfocado en la filosofia de unix y GNU/Linux, puesto que se basa en un nucleo (core) que realiza funciones extremadamente basicas enfocadas solamente en I/O y escritura|lectura|ejecucion de scripts, despues existen modulos que responden a las llamadas de los niveles superiores y ejecutan los comandos de bajo nivel necesarios para ejecutar la llamda realizada, despues existen librerias que son varias funciones para ser de API de los programas superiores, sin embrago aunque sean librerias debe haber parte de la aplicacion que no sean funciones para llevar un mejor control de las llamadas aunque siempre debe existir la posibilidad de definir toda la libreria o solo ciertas funciones, despues la siguiente capa son las utilidades que pueden realizar tareas complejas de forma sencilla pero no intuitiva para el usuario promedio, y por ultimo son las aplicaciones de usuario que son las que el usuario ejecuta cada vez que llama al programa.
 
 La organizacion anterior permite crear diversos plugins que añadan mas funcionalidad al programa permitiendo un desarrollo mas modular y permitiendo mejor la colaboracion por parte de los desarrolladores.
+
+Ademas cualquier aplicacion a llamar debe ser llamada por init puesto que automaticamente carga todo lo necesario para el funcionamiento y no carga lo que no sea necesario para una mejor administración
+
+Los directorios se organizan de la sig. manera
+
+	/app
+		es el directorio que contiene todos los programas
+	/usr/app
+		contiene el arbol de metadatos de los paquetes
+	/usr/bin/<script>
+		los archivos contenidos en /usr/bin son scripts que llaman a init en el directorio /app/init

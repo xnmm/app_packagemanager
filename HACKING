@@ -1,42 +1,21 @@
+Copyright (C) 2015  xhunik miguel					 
+
+This program is free software: you can redistribute it and/or modify 
+it under the terms of the GNU General Public License as published by 
+the Free Software Foundation, either version 3 of the License, or	
+(at your option) any later version.					
+
+This program is distributed in the hope that it will be useful,	 
+but WITHOUT ANY WARRANTY; without even the implied warranty of	 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the	 
+GNU General Public License for more details.			 
+
+You should have received a copy of the GNU General Public License	 
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 para colaborar en el proyecto contactame al correo:
 	xhuniktzi@gmail.com
 
-funciones
-	setup:
-		recibe el nombre de un paquete local lo descomprime y lo instala, (si requiere dependencias primer 		busca en el directorio actual a menos que se evite explcitamente, despues en los repositorios), luego actualiza la base de datos
-	install:
-		recibe el nombre de un paquete remoto lo descarga, descomprime y lo instala, (las dependencias solo se buscan en el repositorio remoto a menos que se indique explicitamente que se buscara localmente), luego actualiza la base de datos.
-		binmkpkg:
-			si se pone este parametro a las 2 opciones anteriores primero leera el estado actual de los archivos del sistema y despues de la instalacion los compara para percibir los cambios y crear un paquete binario.
+app es un sistema de gestion de paquetes en fase de desarrollo y esta enfocado en la filosofia de unix y GNU/Linux, puesto que se basa en un nucleo (core) que realiza funciones extremadamente basicas enfocadas solamente en I/O y escritura|lectura|ejecucion de scripts, despues existen modulos que responden a las llamadas de los niveles superiores y ejecutan los comandos de bajo nivel necesarios para ejecutar la llamda realizada, despues existen librerias que son varias funciones para ser de API de los programas superiores, sin embrago aunque sean librerias debe haber parte de la aplicacion que no sean funciones para llevar un mejor control de las llamadas aunque siempre debe existir la posibilidad de definir toda la libreria o solo ciertas funciones, despues la siguiente capa son las utilidades que pueden realizar tareas complejas de forma sencilla pero no intuitiva para el usuario promedio, y por ultimo son las aplicaciones de usuario que son las que el usuario ejecuta cada vez que llama al programa.
 
-	remove:
-		esta funcion recibe un parametro el cual es el paquete a desinstalar, lo desinstala y despues actualiza la base de datos, (si este era dependencia checkea que no se dependencia requerida, en dado caso no se desinstala)
-		purge:
-			si se le aplica este parametro a remove tambien elimina de forma recursiva cualquier dependencia que no este en uso por otro programa.
-
-	mkrepo:
-		esta funcion recibe el parametro, url (que es la direccion donde se subira el repositorio, local para repositorio local), name (que es el nombre del repositorio), type (que puede ser "src, bin, patch-src, patch-bin") y despues crea un directorio con una metadata inicial.
-	addpkg:
-		esta funcion recibe el parametro, pkg (que es el paquete a añadir), repo (que es el repositorio de destino) y despues le crea la metadata.
-
-	mkpkg:
-		crea un paquete de codigo fuente desde un directorio.
-	mkpatch:
-		crea un paqute de parches en src desde dos versiones del codigo fuente.
-			mkpatchbin:
-				crea un parche binario desde dos versiones del codigo fuente.
-
-	patch:
-		aplica un parche desde los repositorios.
-			local:
-				arg. de patch, lo mismo pero desde un archivo local
-
-	add:
-		agrega un repositorio, recibe los parametros, type (recibe el tipo de repositorio, puede ser "src, bin, patch-src, patch-bin"), name (busca el nombre del repositorio en la lista de verificados) y despues lo agrega a la cache.
-
-	refresh:
-		refresca la bas de datos de los repositorios.
-
-	update:
-		actualiza los paquetes desde los repositorios.
-
+La organizacion anterior permite crear diversos plugins que añadan mas funcionalidad al programa permitiendo un desarrollo mas modular y permitiendo mejor la colaboracion por parte de los desarrolladores.
